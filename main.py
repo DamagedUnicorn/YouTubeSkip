@@ -22,16 +22,16 @@ if __name__ == '__main__':
         frame = cv2.cvtColor(np.array(screenshot), cv2.COLOR_BGR2GRAY)
         
         # check if skip add button is in screenshot
-        #result = cv2.matchTemplate(imgPlayButton, frame, cv2.TM_CCOEFF_NORMED)
-        #if result.max() > 0.99:
-        #    pos = np.unravel_index(result.argmax(), result.shape)
-        #    pyautogui.click(int((pos[1] + 12)/2), int((pos[0] + 12)/2))
+        result = cv2.matchTemplate(imgPlayButton, frame, cv2.TM_CCOEFF_NORMED)
+        if result.max() > 0.99:
+            pos = np.unravel_index(result.argmax(), result.shape)
+            pyautogui.click(int((pos[1] + 12)/2), int((pos[0] + 12)/2))
 
         # check if close add button is in screen
         result = cv2.matchTemplate(imgInfoAndClose, frame, cv2.TM_CCOEFF_NORMED)
         print(result.max())
         if result.max() > 0.99:
             pos = np.unravel_index(result.argmax(), result.shape)
-            pyautogui.moveTo(int((pos[1] + 15)/2), int((pos[0] + 47)/2))
+            pyautogui.click(int((pos[1] + 47)/2), int((pos[0] + 15)/2))
 
         time.sleep(1)
