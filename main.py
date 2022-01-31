@@ -26,3 +26,4 @@ if __name__ == '__main__':
             pyautogui.click(int(pos[1]/2), int(pos[0]/2))
 
         time.sleep(1)
+# hej
